@@ -45,6 +45,8 @@ public class RequestService {
 
     public List<Request> listAllByOwnerId(Long ownerId){
         List<Request> requests = requestRepository.findAllByOwnerId(ownerId);
+
+        return requests;
     }
 
 }
