@@ -28,16 +28,16 @@ public class RequestStageRepositoryTests {
     @Test
     public void saveTest(){
         User owner = new User();
-        owner.setId(1l);
+        owner.setId(2l);
 
         Request request = new Request();
         request.setId(1L);
 
-        RequestStage stage = new RequestStage(null, "Foi comprado um novo laptop da marca HP com 16 Gb de RAM", new Date(), RequestState.CLOSED, request, owner);
+        RequestStage stage = new RequestStage(null, "Foi comprado dois novo laptop da marca HP com 16 Gb de RAM", new Date(), RequestState.CLOSED, request, owner);
 
         RequestStage createdStage = requestStageRepository.save(stage);
 
-        assertThat(createdStage.getId()).isEqualTo(1L);
+        assertThat(createdStage.getId()).isEqualTo(2L);
 
     }
 
@@ -54,7 +54,7 @@ public class RequestStageRepositoryTests {
     public void listaByRequestIdTest(){
         List<RequestStage> stages = requestStageRepository.findAllByRequestId(1L);
 
-        assertThat(stages.size()).isEqualTo(2);
+        assertThat(stages.size()).isEqualTo(1);
 
     }
 }
