@@ -3,7 +3,7 @@ package com.springcourse.repository;
 import com.springcourse.domain.User;
 import com.springcourse.domain.enums.Role;
 import org.junit.FixMethodOrder;
-import org.junit.Test;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,7 @@ public class UserRepositoryTests {
     @Autowired
     private UserRepository userRepository;
 
-    @Test
+    @Ignore
     public void AsaveTest(){
         User user = new User(null, "Matheus", "matheusfreire10@live.com", "123", Role.ADMINISTRATOR, null, null);
         User createdUser = userRepository.save(user);
@@ -32,7 +32,7 @@ public class UserRepositoryTests {
         assertThat(createdUser.getId()).isEqualTo(1L);
     }
 
-    @Test
+    @Ignore
     public void updateTest(){
         User user = new User(1L, "Matheus Freire", "matheusfreire10@live.com", "123", Role.ADMINISTRATOR, null, null);
         User updatedUser = userRepository.save(user);
@@ -41,7 +41,7 @@ public class UserRepositoryTests {
 
     }
 
-    @Test
+    @Ignore
     public void getByIdTest(){
         Optional<User> result = userRepository.findById(1L);
         User user = result.get();
@@ -50,7 +50,7 @@ public class UserRepositoryTests {
 
     }
 
-    @Test
+    @Ignore
     public void listTest(){
         List<User> users = userRepository.findAll();
 
@@ -58,13 +58,21 @@ public class UserRepositoryTests {
 
     }
 
-    @Test
+    @Ignore
     public void loginTest(){
         Optional<User> result = userRepository.login("matheusfreire10@live.com", "123");
         User loggeduser = result.get();
 
 
         assertThat(loggeduser.getId()).isEqualTo(1L);
+
+    }
+
+    @Ignore
+    public void updateRoleTest(){
+        int affectedRows =userRepository.updateRole(3L, Role.ADMINISTRATOR);
+
+        assertThat(affectedRows).isEqualTo(1);
 
     }
 
