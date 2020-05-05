@@ -1,6 +1,6 @@
-package com.springcourse.exception;
+package com.springcourse.resource.exception;
 
-import com.springcourse.resource.exception.ApiError;
+import com.springcourse.exception.NotFoundException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
